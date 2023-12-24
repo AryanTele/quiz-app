@@ -40,16 +40,31 @@ const questions = [
   },
 ];
 
-const question = document.getElementById("question");
-const answerBtn = document.getElementById("answer-btn");
-const nextBtn = document.getElementById("next-btn");
+const questionElement = document.getElementById("question");
+const answerButton = document.getElementById("answer-button");
+const nextButton = document.getElementById("next-btn");
 
-let currQuesIndex = 0;
+let currentQuestionIndex = 0;
 let score = 0;
 
 function startQuiz() {
-  currQuesIndex = 0;
+  currentQuestionIndex = 0;
   score = 0;
-  nextBtn.innerHTML = "Next";
+  nextButton.innerHTML = "Next";
   showQuestion();
 }
+
+function showQuestion() {
+  let currentQuestion = questions[currentQuestionIndex];
+  let questionNo = currentQuestionIndex + 1;
+  questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
+
+  currentQuestion.answers.forEach((answer) => {
+    const button = document.createElement("button");
+    button.innerHTML = answer.text;
+    button.classList.add("btn");
+    answerButton.appendChild(button);
+  });
+}
+
+startQuiz();
