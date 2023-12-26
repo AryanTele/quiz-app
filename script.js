@@ -79,4 +79,13 @@ function resetState() {
   }
 }
 
+function selectAnser(e) {
+  const selectBtn = e.target;
+  const isCorrect = selectAnser.dataset.correct === "true";
+  if (isCorrect) {
+    selectBtn.classList.add("correct");
+  } else {
+    selectBtn.classList.add("incorrect");
+  }
+}
 startQuiz();
