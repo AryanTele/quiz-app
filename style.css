@@ -62,7 +62,7 @@ body {
   flex-direction: column;
 }
 
-.btn:hover {
+.btn:hover:not([disabled]) {
   /* From https://css.glass */
   background: rgba(255, 255, 255, 0.74);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -71,6 +71,10 @@ body {
   transition: 0.6s ease;
   font-weight: 700;
   color: #6591c4;
+}
+
+.btn:disabled {
+  cursor: no-drop;
 }
 
 #next-btn {
