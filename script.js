@@ -65,6 +65,10 @@ function showQuestion() {
     button.innerHTML = answer.text;
     button.classList.add("btn");
     answerButton.appendChild(button);
+    if (answer.correct) {
+      button.dataset.correct = answer.correct;
+    }
+    button.addEventListener("click", selectAnser);
   });
 }
 
