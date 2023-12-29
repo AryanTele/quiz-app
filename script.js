@@ -98,14 +98,6 @@ function selectAnswer(e) {
   nextButton.style.display = "block";
 }
 
-nextButton.addEventListener("click", () => {
-  if (currentQuestionIndex < questions.length) {
-    handleNextButton();
-  } else {
-    startButton();
-  }
-});
-
 function handleNextButton() {
   currentQuestionIndex++;
   if (currentQuestionIndex < questions.length) {
@@ -113,6 +105,21 @@ function handleNextButton() {
   } else {
     showScore();
   }
+}
+
+nextButton.addEventListener("click", () => {
+  if (currentQuestionIndex < questions.length) {
+    handleNextButton();
+  } else {
+    startQuiz();
+  }
+});
+
+function showScore() {
+  resetState();
+  questionElement.innerHTML = `You scored ${score} out of ${questions.length} !`;
+  nextButton.innerHTML = "Play Again";
+  nextButton.style.display = "block";
 }
 
 startQuiz();
